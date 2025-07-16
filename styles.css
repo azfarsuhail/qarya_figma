@@ -185,7 +185,7 @@ header.nav.hide {
 }
 
 .hero>.container {
-  top: 20px;
+  top: 100px;
   position: relative;
   z-index: 5;
   display: flex;
