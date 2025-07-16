@@ -757,7 +757,8 @@ header.nav.hide {
 /* Feature card styles */
 .feature-card {
   background: #427977;
-  height: 330px;
+  height: 350px;
+
   padding: 18px;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -766,9 +767,15 @@ header.nav.hide {
   color: #ffffff;
   transition: transform 0.25s ease-in;
 }
+.feature-card:hover .fc-icon:hover,
+.feature-card:hover h4,
+.feature-card:hover p {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
 
 .feature-card:hover {
-  transform: scale(0.8);
+  transform: scale(0.99);
   /* shrink on hover */
 }
 
