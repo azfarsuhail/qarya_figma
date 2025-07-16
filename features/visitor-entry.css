@@ -1,0 +1,168 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(120deg, #1f3c34, #446c5d);
+  color: white;
+  line-height: 1.6;
+  background-image: url("../assets/hero-bg.jpg") center/cover no-repeat;
+  padding:  5%;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-top: ;
+}
+
+/* Top Layout */
+.top-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.solution-text {
+  max-width: 60%;
+}
+
+.solution-text h1 {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 700;
+  font-style: normal; /* 'Bold' is handled by font-weight */
+  font-size: 78px;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 0; /* optional: removes default spacing */
+}
+
+
+.solution-text p {
+  padding-top:  20px;
+  font-family: 'Nexa', sans-serif;
+  font-weight: 400;
+  font-style: normal; /* "Regular" is represented by normal */
+  font-size: 18px;
+  line-height: 100%;  /* You can also use 1 if needed */
+  letter-spacing: 0;
+}
+
+.demo-button-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.btn-demo {
+  margin-top: 80px;
+padding: 15px 25px;
+  background: transparent;
+  border: 2px solid white;
+  bottom: 0px;
+  color: white;
+  text-decoration: none;
+  border-radius: 9px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-demo:hover {
+  background: white;
+  color: #184D47;
+}
+
+/* Feature Layout */
+.feature-layout {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.feature-image {
+  flex: 1;
+width: 70%;
+}
+
+.feature-image img {
+  width: 906px;
+  /* border-radius: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
+}
+
+/* Feature Info */
+.feature-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  padding-top: 90px;
+  padding-left: 70px;
+}
+
+.feature-info h2 {
+  font-family: 'Nexa', sans-serif;
+font-weight: 700;
+font-style: normal;
+font-size: 35px;
+line-height: 40px;
+letter-spacing: 0%;
+padding-bottom: 20px;
+}
+
+
+.feature-info p {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 400;         /* Regular */
+  font-style: normal;       /* "Regular" maps to normal in CSS */
+  font-size: 17px;
+  line-height: 26px;        /* 100% replaced by actual value */
+  letter-spacing: 0;
+}
+
+/* Carousel Buttons */
+.carousel-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  margin-bottom: 70px;
+  justify-content: center;
+}
+
+.circle-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.circle-btn:hover {
+  background: white;
+  color: #184D47;
+}
+

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qarya · Community Management</title>
+
+  <!-- ─────────────  1 · NEXA FONT  ───────────── -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<header class="nav">
+  <script>
+  let lastScrollTop = 0;
+  const header = document.querySelector("header.nav");
+
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scrolling down
+      header.classList.add("hide");
+    } else {
+      // Scrolling up
+      header.classList.remove("hide");
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative scroll
+  });
+</script>
+
+  <nav class="nav-bar" aria-expanded="false">
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#feature">Feature</a></li>
+        <li><a href="#tour">Tour</a></li>
+        <li><a href="#contact">Contact&nbsp;Us</a></li>
+      </ul>
+
+      <a href="/" class="brand">
+        <img src="assets/logo.png" alt="Qarya logo" width="154" height="46">
+      </a>
+      <div class="actions">
+        <a href="#signin" class="btn btn--signIn">Sign&nbsp;In</a>
+        <a href="#join" class="btn btn--join">Join&nbsp;Society</a>
+      </div>
+    </nav>
+</header>
+<body>
+  <!-- ───── HERO (black version) ───── -->
+  <section class="hero hero--dark" id="home">
+    
+    <div class="container hero-inner">
+
+      <!-- --- Copy column --- -->
+      <div class="hero-copy">
+        <h1 class="hero-heading">
+          Lifestyle<br>
+          Convenience<br>
+          Freedom
+        </h1>
+
+        <hr class="custom-line" />
+
+        <p class="hero-paragraph">
+          Lorem ipsum dolor sit amet consectetur. Aliquet natoque facilisi
+          risus pulvinar porta. Sapien turpis amet eget aenean sed leo
+          nisl&nbsp;nec&nbsp;neque.
+        </p>
+
+
+        <div class="store-wrap">
+          <a href="#" class="store-btn appstore-btn" aria-label="Download on App Store">
+            <img src="assets/Rectangle 3.png" alt="Button background" class="btn-bg" />
+
+            <div class="btn-content">
+              <div class="icon-wrapper">
+                <img src="/assets/apple.png" alt="App Icon" class="btn-icon" />
+              </div>
+              <img src="/assets/Available on AppStore.png" alt="Download on App Store" class="btn-label" />
+            </div>
+          </a>
+          <a href="#" class="play-btn" aria-label="Download on Play Store">
+            <img src="assets/Rectangle 3.png" alt="Button background" class="btn-bg" />
+
+            <div class="btn-content">
+              <div class="icon-wrapper">
+                <img src="/assets/play-button.png" alt="App Icon" class="btn-icon" />
+              </div>
+              <img src="/assets/Available on PlayStore.png" alt="Download on Play Store" class="btn-label" />
+            </div>
+          </a>
+
+
+          <!-- dotted arrow (SVG) -->
+          <img src="/assets/arrow.png" alt="">
+        </div>
+      </div>
+
+      <!-- --- Phone mock-ups --- -->
+      <div class="hero-phones">
+        <img src="assets/phone-left.png" class="phone phone--left" alt="">
+        <img src="assets/phone-mid.png" class="phone phone--mid" alt="">
+        <img src="assets/phone-right.png" class="phone phone--right" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FIND OUT MORE ───── -->
+  <section class="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-copy">
+          <h2 style="
+  font-family: 'Nexa', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 78px;
+  line-height: 70px;
+  letter-spacing: 0;
+  color: black;
+">
+            Find out more about <span style="color: var(--green-900); font-weight: 900;">
+              QARYA
+            </span>
+          </h2>
+
+          <p>Qarya is an all-purpose community management system that aims to provide ease and convenience by digitizing
+            the everyday living of a gated community.</p>
+          <p>Some of the salient features of the application include visitor management, everyday maintenance services,
+            and the option to browse through what’s happening in the community.</p>
+          <a href="#find-out" class="btn btn--primary btn--find-out">Find&nbsp;Out</a>
+
+        </div>
+
+        <div class="about-media">
+          <img src="assets/tablet-stack.png" alt="Qarya dashboard on tablet">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── HOW WE WORK ───── -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="work-top">
+        <a href="#demo" class="btn btn--request-demo">Request a demo</a>
+
+        <div class="work-heading">
+          <h2 style="
+      font-family: 'Nexa', sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 78px;
+      line-height: 60px;
+      letter-spacing: 0;
+      margin-bottom: 0.75rem;
+    ">
+            How we work?
+          </h2>
+          <p>Lorem ipsum dolor sit amet consectetur. Sapien turpis amet.</p>
+        </div>
+      </div>
+
+
+      <div class="work-grid">
+        <div class="work-card card-2-5">
+          <div>
+            <h3>Reduced Overheads</h3>
+            <p>Reduces operational costs <br> in the long run.</p>
+          </div>
+          <img src="assets/icon-overheads.png" class="icon" alt="">
+        </div>
+
+        <div class="work-card card-3-5">
+          <div>
+            <h3>Monetization Opportunity</h3>
+            <p>Society forums can be used for ads and <br> promotional content.</p>
+          </div>
+          <img src="assets/icon-monetize.png" class="icon" alt="">
+        </div>
+
+        <div class="work-card card-3-5">
+          <div>
+            <h3>Data Analytics</h3>
+            <p>Reports and records can be used <br> to make insightful projections.</p>
+          </div>
+          <img src="assets/icon-analytics.png" class="icon" alt="">
+        </div>
+
+        <div class="work-card card-2-5">
+          <div>
+            <h3>Satisfied Customers</h3>
+            <p>Convenient and hassle-free daily <br> lives of the residents.</p>
+          </div>
+          <img src="assets/icon-happy.png" class="icon" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ───── FEATURES GRID ───── -->
+  <section class="features" id="feature">
+    <div class="container">
+      <h2>Everyday life, simplified</h2>
+      <p>A community management system, with web and mobile applications with a connected and centralized <br> database.
+        The
+        software suite includes smooth digital solutions for:</p>
+
+      <div class="parent">
+        <a class="feature-card div1" href="features/visitor-entry.html">
+          <div class="fc-icon">
+            <img src="/assets/Group 105.png" alt="">
+          </div>
+          <h4>Visitor authorization</h4>
+          <p>An in-app visitor request system <br> and a dedicated verification app for <br> security personnel.</p>
+        </a>
+
+        <a class="feature-card div2" href="features/visitor-entry.html">
+          <div class="fc-icon">
+            <img src="/assets/Group 107.png" alt="">
+          </div>
+          <h4>Bill <br> payments</h4>
+          <p>An integrated system for <br> payment of bills and rent through <br> a few taps on your phone.</p>
+        </a>
+
+        <a class="feature-card div3" href="features/visitor-entry.html">
+          <div class="fc-icon">
+            <img src="/assets/Group 106.png" alt="">
+          </div>
+          <h4>Admin announcement</h4>
+          <p>Notice board feature on the resident app for admin <br> to disperse important information.</p>
+        </a>
+
+        <a class="feature-card div4" href="features/visitor-entry.html">
+          <div class="fc-icon">
+            <img src="assets/Group 110.png" alt="">
+          </div>
+          <h4>Maintenance service provision</h4>
+          <p>A repository of available and trusted maintenance <br> providers for residents to access with ease.</p>
+        </a>
+
+        <a class="feature-card div5" href="features/visitor-entry.html">
+          <div class="fc-icon">
+            <img src="/assets/Group 109.png" alt="">
+          </div>
+          <h4>Private social network for residents</h4>
+          <p>A social platform just for the <br> community members to discuss <br> community events, post queries <br>
+            &amp; circulate news.</p>
+        </a>
+
+        <a class="feature-card div6" href="features/visitor-entry.html">
+          <div class="fc-icon">
+            <img src="/assets/Group 111.png" alt="">
+          </div>
+          <h4>Venue booking</h4>
+          <p>Scheduling and booking function to <br> make reservations for venues and <br> recreation centers such as
+            event halls <br> and sports grounds.</p>
+        </a>
+      </div>
+  </section>
+
+
+  <!-- ───── FOOTER (placeholder) ───── -->
+  <footer style="text-align:center;padding:3rem 1rem;color:#6d6d6d;font-size:.85rem">
+    © 2025 Qarya. All rights reserved.
+  </footer>
+
+  <!-- ───── MOBILE BURGER JS ───── -->
+  <script>
+    const nav = document.querySelector('.nav-bar');
+    const burger = document.querySelector('.burger');
+    if (burger) {
+      burger.addEventListener('click', () => {
+        const open = nav.getAttribute('aria-expanded') === 'true';
+        nav.setAttribute('aria-expanded', !open);
+      });
+    }
+  </script>
+
+
+
+
+
+</body>
+
+</html>

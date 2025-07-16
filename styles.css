@@ -1,0 +1,863 @@
+@font-face {
+  font-family: "Nexa";
+  src: url("fonts/Nexa-Regular.woff2") format("woff2"),
+    url("fonts/Nexa-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("fonts/Nexa-Bold.woff2") format("woff2"),
+    url("fonts/Nexa-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap
+}
+
+/* <!-- ─────────────  2 · DESIGN TOKENS + RESET  ───────────── --> */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+:root {
+  --green-900: #01472d;
+  --green-800: #0a5e3a;
+  --green-soft: #0f5340;
+  --teal-dark: #204b48;
+  --white: #fff;
+  --radius-pill: 3rem;
+  --radius-card: 1rem;
+  --gap-xl: 3.5rem;
+  --gap-lg: 2.25rem;
+  --gap-md: 1.5rem;
+  --gap-sm: .75rem;
+  --max-width: 1300px;
+}
+
+body {
+  font-family: "Nexa", system-ui, sans-serif;
+  color: var(--green-900);
+  line-height: 1.55;
+  background: #fefefe
+}
+
+/* quick helpers */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1rem
+}
+
+/* ─────────────  3 · NAV BAR  ───────────── */
+/* ───────────── NAVIGATION (Rewritten for Qarya UI) ───────────── */
+header.nav {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  transition: transform 0.3s ease-in-out;
+}
+
+header.nav.hide {
+  transform: translateY(-100%);
+}
+
+
+
+
+
+.nav-bar {
+  /* position: absolute; */
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  margin: 1.5rem auto;
+  padding: 0.85rem 2rem;
+  background: #ffffff;
+  border-radius: 100px;
+  max-width: var(--max-width);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: #4a4a4a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--green-900);
+}
+
+/* Button Actions */
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 2rem;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+/* Sign In Button */
+.btn--signIn {
+  background: var(--green-900);
+  color: var(--white);
+  border-color: var(--green-900);
+}
+
+.btn--signIn:hover {
+  background: var(--white);
+  color: var(--green-900);
+}
+
+/* Join Button */
+.btn--join {
+  background: var(--white);
+  color: var(--green-900);
+  border-color: var(--green-900);
+}
+
+.btn--join:hover {
+  background: var(--green-900);
+  color: var(--white);
+}
+
+
+.hero {
+  position: relative;
+  min-height: 960px;
+  color: #ffffff;
+  background: url("assets/hero-bg.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 60, 36, 0.6);
+  mix-blend-mode: multiply;
+}
+
+.hero>.container {
+  top: 20px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+  /* Ensures text is on the left, phones on the right */
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-block: 5rem 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-copy {
+  flex: 1 1 500px;
+  max-width: 520px;
+  order: 1;
+}
+
+.hero-heading {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  /* "Black" is typically handled by weight */
+  font-size: 88px;
+  line-height: 82px;
+  letter-spacing: 0;
+  margin: 0;
+  /* optional: removes default spacing */
+}
+
+.custom-line {
+  position: absolute;
+  margin-top: 20px;
+  width: 556px;
+  height: 0;
+  opacity: 1;
+  border-top: 1.5px solid currentColor;
+  /* uses current text color */
+  transform: rotate(0deg);
+}
+
+.hero-paragraph {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  /* "Regular" is represented as normal in CSS */
+  font-size: 18px;
+  line-height: 1;
+  /* 100% line height */
+  letter-spacing: 0;
+  margin-top: 40px;
+  /* optional: remove default spacing */
+}
+
+.store-wrap {
+  margin-top: 10px;
+}
+
+.store-badges {
+  display: flex;
+  column-gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.store-badges img {
+  width: 135px;
+  height: auto;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.store-badges img:hover {
+  transform: translateY(-4px);
+}
+
+.hero-phones {
+  width: 650.33px;
+  height: 606.16px;
+  position: absolute;
+  top: 100px;
+  left: 675px;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+
+
+.phone--left {
+  width: 233.33px;
+  height: 504.83px;
+  position: absolute;
+  top: 101.33px;
+  left: 0;
+  /* Add if positioning is needed */
+  opacity: 1;
+  border-radius: 26px;
+  transition: transform 0.3s ease-in;
+  /* Smooth ease-in on hover */
+
+  transform: rotate(0deg);
+  object-fit: cover;
+  /* Ensures the image fits nicely inside rounded corners */
+}
+
+.phone--left:hover {
+  transform: scale(1.03);
+  /* Slight zoom-in */
+}
+
+.phone--mid {
+  width: 233.33px;
+  height: 504.83px;
+  position: absolute;
+  top: 43px;
+  left: 208px;
+  opacity: 1;
+  border-radius: 26px;
+  object-fit: cover;
+
+  border: 2px ridge #449E48;
+
+  /* Transform settings */
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.3s ease-in;
+}
+
+.phone--mid:hover {
+  transform: scale(1.03);
+}
+
+.phone--right {
+  width: 233.33px;
+  height: 504.83px;
+  position: absolute;
+  top: 0;
+  left: 417px;
+  opacity: 1;
+  border-radius: 26px;
+  transform: rotate(0deg);
+  object-fit: cover;
+  transition: transform 0.3s ease-in;
+  /* Smooth ease-in on hover */
+}
+
+.phone--right:hover {
+  transform: scale(1.03);
+}
+
+
+.phone {
+  width: 240px;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.phone--mid {
+  transform: translateX(20px);
+  z-index: 2;
+}
+
+.phone--back {
+  transform: translateX(60px) scale(1.04);
+  z-index: 1;
+}
+
+/* ─────────── Shared Button Styles ─────────── */
+
+/* Base button container (Play Store or App Store) */
+.store-btn,
+.play-btn {
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  height: 40px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Background image for button (e.g. rounded rectangle) */
+.store-btn .btn-bg,
+.play-btn .btn-bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 10px;
+  /* Rounded edges */
+}
+
+/* Content wrapper on top of background (label + icon) */
+.store-btn .btn-content,
+.play-btn .btn-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* Space between label and icon */
+  transform: translate(-50%, -50%);
+}
+
+/* Text label image inside the button */
+.store-btn .btn-label,
+.play-btn .btn-label {
+  max-height: 27px;
+  width: auto;
+}
+
+/* Icon container — this will scale on hover */
+.store-btn .icon-wrapper,
+.play-btn .icon-wrapper {
+  display: inline-flex;
+  transition: transform 0.25s ease;
+  /* Smooth scaling */
+}
+
+/* Only scale the icon when the entire button is hovered */
+.store-btn:hover .icon-wrapper,
+.play-btn:hover .icon-wrapper {
+  transform: scale(1.15);
+}
+
+/* Actual icon inside the icon wrapper */
+.store-btn .btn-icon,
+.play-btn .btn-icon {
+  max-height: 27px;
+  width: auto;
+}
+
+
+
+/* ─────────────  5 · “FIND OUT MORE”  ───────────── */
+.about {
+  padding-block: 6rem 5rem
+}
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xl);
+  align-items: center
+}
+
+.about-copy {
+  flex: 1 1 340px
+}
+
+.about-copy h2 {
+  font-size: clamp(1.9rem, 3vw+1rem, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--gap-sm)
+}
+
+.about-copy p {
+  margin-bottom: var(--gap-md);
+  max-width: 420px
+}
+
+.btn--primary {
+  background: var(--green-900);
+  color: var(--white);
+  border-color: var(--green-900)
+}
+
+.btn--primary:hover {
+  background: var(--green-800)
+}
+
+.about-media {
+  flex: 1 1 360px;
+  text-align: center
+}
+
+.about-media img {
+  width: 100%;
+  max-width: 672px
+}
+
+.btn--find-out {
+  background-color: #184D47;
+  color: white;
+  border: 2px solid #449E48;
+  padding: 0.6rem 1.8rem;
+  font-weight: 700;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn--find-out:hover {
+  background-color: white;
+  color: #449E48;
+  border-color: #449E48;
+}
+
+/* ─────────────  6 · “HOW WE WORK”  ───────────── */
+.work {
+  padding-block: 5.5rem 5rem;
+  background: #fafcfc;
+}
+
+.btn--request-demo {
+  display: inline-block;
+  background-color: white;
+  color: #449E48;
+  border: 2px solid #449E48;
+  padding: 0.6rem 1.8rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.btn--request-demo:hover {
+  background-color: #449E48;
+  color: white;
+  border-color: #449E48;
+}
+
+.work-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  /* optional, for responsiveness */
+}
+
+.work-heading {
+  text-align: right;
+  max-width: 700px;
+}
+
+.work-heading {
+  text-align: right;
+  margin-bottom: 2.5rem;
+}
+
+.work-heading h2 {
+  font-size: clamp(1.8rem, 3vw + 1rem, 2.75rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.work-heading p {
+  max-width: 540px;
+  color: #4f4f4f;
+  margin-left: auto;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: auto;
+  gap: 30px;
+}
+
+.card-2-5 {
+  grid-column: span 2;
+  background: #eaf6ed;
+}
+
+.card-3-5 {
+  grid-column: span 3;
+  background: #fdf0e6;
+}
+
+.work-card:nth-child(1) {
+  background-color: #DFEFD7;
+  /* light green */
+
+}
+
+.work-card:nth-child(1) .icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 60%;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease-in;
+  opacity: 0.9;
+  z-index: 1;
+  /* light green */
+
+}
+
+.work-card:nth-child(2) {
+  background-color: #FAE5D1;
+  /* light orange */
+}
+
+.work-card:nth-child(3) {
+  background-color: #CBDFF0;
+  /* light blue */
+}
+
+.work-card:nth-child(4) {
+  background-color: #C9EDEA;
+  /* teal */
+}
+
+/* Flip background colors for 2nd row */
+.work-grid>.work-card:nth-child(3) {
+  background: #d9e8fb;
+}
+
+.work-grid>.work-card:nth-child(4) {
+  background: #e0f3f1;
+}
+
+.work-card {
+  height: 400px;
+  padding: 2rem;
+  border-radius: var(--radius-card, 18px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #eaf6ed;
+  /* default background */
+  position: relative;
+  overflow: hidden;
+}
+
+.work-card {
+  position: relative;
+  /* ensure parent context for absolute elements */
+}
+
+.work-card h3 {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 700;
+  /* XBold */
+  font-style: normal;
+  font-size: 30px;
+  line-height: 28px;
+  letter-spacing: 0;
+  margin: 0;
+  z-index: 10;
+}
+
+.work-card p {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  margin: 0.75rem 0 0;
+  z-index: 2;
+  position: relative;
+}
+
+.work-card:nth-child(3)>div,
+.work-card:nth-child(4)>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+
+.work-card .icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  /* Image fills full card height */
+  width: auto;
+  /* Maintain aspect ratio */
+  object-fit: contain;
+  /* Or use cover if you want it to fill the space */
+  transition: transform 0.3s ease-in;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.work-card:hover .icon {
+  transform: scale(1.2);
+  /* Subtle zoom */
+}
+
+/* ─────────────  7 · FEATURE GRID (“EVERYDAY…”)  ───────────── */
+.features {
+  position: relative;
+  padding-bottom: 4rem;
+  /* Add this line */
+  margin-bottom: 0;
+}
+
+
+.features h2 {
+  position: relative;
+  left: 390px;
+  width: 890px;
+  height: 69px;
+  opacity: 1;
+
+  font-family: 'Nexa', sans-serif;
+  font-weight: 500;
+  /* Bold */
+  font-style: normal;
+  font-size: 78px;
+  line-height: 60px;
+  letter-spacing: 0;
+
+  text-align: right;
+  vertical-align: bottom;
+  color: #184D47;
+}
+
+.features p {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #212529;
+  /* Optional: reset default spacing */
+}
+
+.features-section {
+  padding: 4rem 1rem;
+  background: #fafafa;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 30px;
+}
+
+/* Grid placement */
+.div1 {
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.div2 {
+  grid-area: 1 / 5 / 2 / 8;
+}
+
+.div3 {
+  grid-area: 1 / 8 / 2 / 13;
+}
+
+.div4 {
+  grid-area: 2 / 1 / 3 / 6;
+}
+
+.div5 {
+  grid-area: 2 / 6 / 3 / 9;
+}
+
+.div6 {
+  grid-area: 2 / 9 / 3 / 13;
+}
+
+/* Feature card styles */
+.feature-card {
+  background: #427977;
+  height: 330px;
+  padding: 18px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+
+  color: #ffffff;
+  transition: transform 0.25s ease-in;
+}
+
+.feature-card:hover {
+  transform: scale(0.8);
+  /* shrink on hover */
+}
+
+.fc-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Typography specs for h4 */
+.feature-card h4 {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 28px;
+
+  letter-spacing: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* Typography specs for p */
+.feature-card p {
+  font-family: 'Nexa', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+footer {
+  margin-top: 0;
+  /* or a smaller value */
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 960px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+  color: #888;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-body {
+  text-align: left;
+}
+
+.modal-body h2 {
+  font-size: 2rem;
+  color: #184D47;
+  margin-bottom: 1rem;
+}
+
+.modal-body img {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
