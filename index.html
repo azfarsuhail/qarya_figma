@@ -10,24 +10,24 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <header class="nav">
-  <script>
-  let lastScrollTop = 0;
-  const header = document.querySelector("header.nav");
+    <script>
+    let lastScrollTop = 0;
+    const header = document.querySelector("header.nav");
 
-  window.addEventListener("scroll", function () {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener("scroll", function () {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > lastScrollTop && currentScroll > 100) {
-      // Scrolling down
-      header.classList.add("hide");
-    } else {
-      // Scrolling up
-      header.classList.remove("hide");
-    }
+      if (currentScroll > lastScrollTop && currentScroll > 100) {
+        // Scrolling down
+        header.classList.add("hide");
+      } else {
+        // Scrolling up
+        header.classList.remove("hide");
+      }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative scroll
-  });
-</script>
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative scroll
+    });
+  </script>
 
   <nav class="nav-bar" aria-expanded="false">
 
